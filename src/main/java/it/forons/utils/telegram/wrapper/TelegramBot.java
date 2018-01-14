@@ -79,7 +79,6 @@ public class TelegramBot {
     connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
     connection.setRequestProperty("charset", "utf-8");
     connection.setRequestProperty("Content-Length", Integer.toString(postDataLength));
-    connection.setUseCaches(false);
 
     try (DataOutputStream wr = new DataOutputStream(connection.getOutputStream())) {
       wr.write(postData);

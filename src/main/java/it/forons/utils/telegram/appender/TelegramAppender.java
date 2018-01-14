@@ -26,6 +26,7 @@ public class TelegramAppender extends AppenderSkeleton {
         connection.setDoOutput(true);
         connection.setInstanceFollowRedirects(false);
         connection.setRequestMethod("POST");
+        connection.setRequestProperty("charset", "utf-8");
         connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
       } catch (IOException e) {
         e.printStackTrace();
@@ -44,7 +45,6 @@ public class TelegramAppender extends AppenderSkeleton {
       int postDataLength = postData.length;
 
       connection.setRequestProperty("Content-Length", Integer.toString(postDataLength));
-      connection.setRequestProperty("charset", "utf-8");
 
       try (DataOutputStream wr = new DataOutputStream(connection.getOutputStream())) {
         wr.write(postData);
