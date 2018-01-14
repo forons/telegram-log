@@ -5,6 +5,30 @@ This projects allows the users to both send simple messages and to use the Teleg
 
 It is released under a Apache License 2.0.
 
+## Step 0: Creation of the bot
+
+Following what is written [here](https://www.shellhacks.com/telegram-api-send-message-personal-notification-bot/),
+the first step to create a bot is to start a new conversation with **BotFather**.
+With it, create a new bot with `/newbot`, then assign it a name and a unique username following the instructions.
+
+The *BotFather* will answer with a `TOKEN`, which will be needed to later use the Telegram-Log application.
+
+Then, start a conversation with the new created bot, searching it through the global search.
+
+Now, write `/start` and start a conversation.
+
+Go to `https://api.telegram.org/bot<TOKEN>/getUpdates` (replacing `<TOKEN>` with the token of your bot)
+and you will receive a JSON that contains something like:
+
+
+    ..."chat":{"id":123456789,"first_name":"your_name","username":"your_username",type":"private"}...
+
+You also need the chat id in order to use the Telegram-Log application.
+
+Now you are ready to go to the next step!
+  
+  
+
 ## Quickstart
 
 To use the application you need to:
@@ -49,10 +73,10 @@ log4j.appender.telegram.layout=org.apache.log4j.PatternLayout
 log4j.appender.telegram.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
 ```
 
-### License
+## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
-### Acknowledgments
+## Acknowledgments
 [Marco De Nadai](http://www.marcodena.it/) and [Paolo Sottovia](http://github.com/welpaolo/)for the inspiration
 
 
