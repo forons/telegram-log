@@ -9,6 +9,8 @@ import java.util.Objects;
 
 public class TelegramBot {
 
+  private final static String BASE_URL = "https://api.telegram.org/bot";
+
   private String token;
   private int chat_id;
 
@@ -18,7 +20,7 @@ public class TelegramBot {
   }
 
   public int sendMessage(String message) throws IOException {
-    return TelegramBot.sendMessage(getToken(), getChat_id(), message);
+    return sendMessage(getToken(), getChat_id(), message);
   }
 
   public String getToken() {
@@ -65,7 +67,7 @@ public class TelegramBot {
   }
 
   public static int sendMessage(String token, int chat_id, String message) throws IOException {
-    String request = String.format("https://api.telegram.org/bot%s/sendMessage", token);
+    String request = String.format("%s%s/sendMessage", BASE_URL, token);
     URL url = new URL(request);
     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 
