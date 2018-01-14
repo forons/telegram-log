@@ -77,7 +77,7 @@ log4j.appender.telegram.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
 ## Acknowledgments
-[Marco De Nadai](http://www.marcodena.it/) and [Paolo Sottovia](http://github.com/welpaolo/)for the inspiration
+[Marco De Nadai](http://www.marcodena.it/) and [Paolo Sottovia](http://github.com/welpaolo/) for the inspiration
 
 
 -----
