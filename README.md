@@ -1,11 +1,10 @@
 ## Telegram-Log – Send message to a Telegram Bot or use it as a logger!
 
-*Telegram-Log* is a simple way to interact from Java to a Telegram Bot.
-This projects allows the users to both send simple messages and to use the Telegram Bot as an appender for the well known Java logger log4j.
+*Telegram-Log* is a simple way to interact from multiple programming languages to a Telegram Bot.
 
 It is released under a Apache License 2.0.
 
-## Step 0: Creation of the bot
+## Before everything: Create the bot
 
 Following what is written [here](https://www.shellhacks.com/telegram-api-send-message-personal-notification-bot/),
 the first step to create a bot is to start a new conversation with **BotFather**.
@@ -26,10 +25,9 @@ and you will receive a JSON that contains something like:
 You also need the chat id in order to use the Telegram-Log application.
 
 Now you are ready to go to the next step!
-  
-  
-
+ 
 ## Quickstart
+### Java
 
 To use the application you need to:
 
@@ -44,7 +42,7 @@ Then, you will be able to import this project in any of your projects simply by 
     		<version>1.0-SNAPSHOT</version>
     	</dependency>
 
-### Usage 1: Send message
+##### Usage 1: Send message
 
 As explained in `src/main/java/it/forons/utils/telegram/TelegramSender.java` there two ways to send messages to a Telegram Bot:
 ```java    
@@ -58,7 +56,7 @@ or
 TelegramBot.sendMessage(TOKEN, CHAT_ID, "Option 2: static method.");
 ```
 
-### Usage 2: log4j Appender
+##### Usage 2: log4j Appender
 
 To use Telegram-Log as a log4j appender it is just needed to add the maven dependency and to set the following lines into the `log4j.properties` file:
 ```
@@ -72,6 +70,32 @@ log4j.appender.telegram.CHAT_ID=<CHAT_ID>
 log4j.appender.telegram.layout=org.apache.log4j.PatternLayout
 log4j.appender.telegram.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
 ```
+
+### Python
+
+Just configure
+
+```
+TELEGRAM_TOKEN = ''
+TELEGRAM_CHAT_ID = ''
+```
+
+with your `TOKENID` and `CHATID`, then use it as a simple Python logger:
+
+```
+logger = logging.getLogger('trymeApp')
+	logger.setLevel(logging.WARNING)
+
+	handler = RequestsHandler()
+	formatter = LogstashFormatter()
+	handler.setFormatter(formatter)
+	logger.addHandler(handler)
+
+	logger.setLevel(logging.WARNING)
+
+	logger.error('We have a problem')
+```
+
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
